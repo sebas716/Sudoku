@@ -6,7 +6,6 @@ public class Principal {
 	
 	public static void main(String[] args)
     {
-        //Matriz inicial de 9x9, tablero a resolver
         int[][] tablero ={
         		{0,0,0,3,9,0,0,7,2},
         		{0,0,0,0,0,0,0,9,5},
@@ -44,16 +43,16 @@ public class Principal {
             System.out.println();
         }
         System.out.println("_________________________________");
-        
+
         Sudoku miSudoku = new Sudoku(tablero);
         
-        Scanner neme = new Scanner(System.in);
+        Scanner continuar = new Scanner(System.in);
         //Metodo Para pausar la ejecución del programa
         int tecla;
         //Se imprime mensaje en pantalla para continuar
         System.out.println("\n Presione **ENTER** para resolver el Sudoku...\n");
         //Continuamos con la ejecución del codigo
-        neme.nextLine();
+        continuar.nextLine();
         
         miSudoku.resolverSudoku();
         miSudoku.imprimirSudoku();
