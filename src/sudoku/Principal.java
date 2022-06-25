@@ -1,11 +1,18 @@
 package sudoku;
 
 import java.util.Scanner;
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class Principal {
+public class Principal extends Application {
 	
-	public static void main(String[] args)
-    {
+	public static void main(String[] args){
+            launch(args);
+
         int[][] tablero ={
         		{0,0,0,3,9,0,0,7,2},
         		{0,0,0,0,0,0,0,9,5},
@@ -27,7 +34,7 @@ public class Principal {
                            en cada fila, columna o casilla.""");
         //Se imprime el Sudoku inicial, que se plantea para resolver
         System.out.println("_________________________________");
-        System.out.println("\n         Sudoku para resolver         ");
+        System.out.println("\n   Intente resolver el Sudoku       ");
         System.out.println("_________________________________");
         //Impresión del tablero inicial o matriz
         for (int i=0;i<tablero.length;i++) {
@@ -46,7 +53,8 @@ public class Principal {
 
         Sudoku miSudoku = new Sudoku(tablero);
         
-        Scanner continuar = new Scanner(System.in);
+
+	Scanner continuar = new Scanner(System.in);
         //Metodo Para pausar la ejecución del programa
         int tecla;
         //Se imprime mensaje en pantalla para continuar
@@ -56,5 +64,14 @@ public class Principal {
         
         miSudoku.resolverSudoku();
         miSudoku.imprimirSudoku();
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+         Parent root = FXMLLoader.load(getClass().getResource("Ventana.fxml"));
+        Scene scene = new Scene (root);
+        stage.setTitle("Zudoku");
+        stage.setScene(scene);
+        stage.show();
     }
 }

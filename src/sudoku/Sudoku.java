@@ -78,7 +78,8 @@ public class Sudoku
     }
     //Imprime el tablero del Sudoku Resuelto
     public void imprimirSudoku(){
-    	System.out.println("         Sudoku Resuelto         ");
+    	System.out.println("_________________________________");
+    	System.out.println("\n      Solucion del Sudoku       ");
     	System.out.println("_________________________________");
         for(int i=0;i<9;i++){
             if (i%3==0 && i!=0){
