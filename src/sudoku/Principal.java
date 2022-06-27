@@ -1,18 +1,11 @@
 package sudoku;
 
 import java.util.Scanner;
-import javafx.application.Application;
-import static javafx.application.Application.launch;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
-public class Principal extends Application {
+public class Principal {
 	
-	public static void main(String[] args){
-            launch(args);
-
+	public static void main(String[] args)
+    {
         int[][] tablero ={
         		{0,0,0,3,9,0,0,7,2},
         		{0,0,0,0,0,0,0,9,5},
@@ -53,10 +46,11 @@ public class Principal extends Application {
 
         Sudoku miSudoku = new Sudoku(tablero);
         
-
-	Scanner continuar = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner continuar = new Scanner(System.in);
         //Metodo Para pausar la ejecución del programa
-        int tecla;
+        @SuppressWarnings("unused")
+		int tecla;
         //Se imprime mensaje en pantalla para continuar
         System.out.println("\n Presione **ENTER** para resolver el Sudoku...\n");
         //Continuamos con la ejecución del codigo
@@ -64,14 +58,5 @@ public class Principal extends Application {
         
         miSudoku.resolverSudoku();
         miSudoku.imprimirSudoku();
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-         Parent root = FXMLLoader.load(getClass().getResource("Ventana.fxml"));
-        Scene scene = new Scene (root);
-        stage.setTitle("Zudoku");
-        stage.setScene(scene);
-        stage.show();
     }
 }
